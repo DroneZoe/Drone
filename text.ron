@@ -4,11 +4,11 @@
     prefix: [
         (
             name: "Obedience",
-            selected: true,
+            selected: false,
         ),
         (
             name: "Pleasure",
-            selected: false,
+            selected: true,
         ),
         (
             name: "Administrative",
@@ -30,7 +30,7 @@
         ),
         (
             name: "Toy",
-            selected: false,
+            selected: true,
         ),
         (
             name: "Resouce",

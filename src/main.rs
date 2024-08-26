@@ -3,7 +3,6 @@
 use eframe::egui;
 use serde::{Deserialize, Serialize};
 use std::fs;
-use std::path::Path;
 use std::u8;
 
 fn main() -> eframe::Result {
@@ -28,15 +27,6 @@ fn main() -> eframe::Result {
 struct MyApp {
     name: String,
     designation_number: String,
-    // obedience: bool,
-    // pleasure: bool,
-    // hucow: bool,
-    // administrative: bool,
-    // conversion: bool,
-    // resouce: bool,
-    // slave: bool,
-    // toy: bool,
-    // denial: bool,
     prefix: Vec<Affix>,
     suffix: Vec<Affix>,
 }
@@ -92,6 +82,7 @@ impl Default for MyApp {
                 Affix::new("Toy"),
                 Affix::new("Resouce"),
                 Affix::new("Slave"),
+                Affix::new("Kitty"),
             ],
         }
     }
@@ -125,10 +116,32 @@ impl eframe::App for MyApp {
             for prefix in self.prefix.iter_mut() {
                 ui.checkbox(&mut prefix.selected, prefix.name.clone());
             }
-
             for suffix in self.suffix.iter_mut() {
                 ui.checkbox(&mut suffix.selected, suffix.name.clone());
             }
+            let mut prefix: (String, u8) = (String::new(), 0);
+            let mut suffix: (String, u8) = (String::new(), 0);
+
+            for p in self.prefix.iter() {
+                if p.selected && prefix.1 < 2 {
+                    prefix.0 += &p.name.chars().collect::<Vec<char>>()[0].to_string();
+                    prefix.1 += 1;
+                }
+            }
+
+            for s in self.suffix.iter() {
+                if s.selected && suffix.1 < 2 {
+                    suffix.0 += &s.name.chars().collect::<Vec<char>>()[0].to_string();
+                    suffix.1 += 1;
+                }
+            }
+
+            let mut result = format!("{}-{}", prefix.0, self.designation_number);
+
+            if suffix.1 != 0 {
+                result += &format!("-{}", suffix.0)
+            }
+            ui.heading(result);
             if ctx.input(|i| i.viewport().close_requested()) {
                 fs::write(
                     PATH,
