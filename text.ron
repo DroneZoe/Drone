@@ -1,0 +1,49 @@
+(
+    name: "Zoey",
+    designation_number: "6555",
+    prefix: [
+        (
+            name: "Obedience",
+            selected: true,
+        ),
+        (
+            name: "Pleasure",
+            selected: false,
+        ),
+        (
+            name: "Administrative",
+            selected: false,
+        ),
+        (
+            name: "Conversion",
+            selected: false,
+        ),
+        (
+            name: "Denial",
+            selected: false,
+        ),
+    ],
+    suffix: [
+        (
+            name: "Hucow",
+            selected: false,
+        ),
+        (
+            name: "Toy",
+            selected: false,
+        ),
+        (
+            name: "Resouce",
+            selected: false,
+        ),
+        (
+            name: "Slave",
+            selected: false,
+        ),
+    ],
+    temp_affix: (
+        name: "",
+        selected: false,
+    ),
+    affix_type: Suffix,
+)
