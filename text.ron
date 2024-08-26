@@ -4,11 +4,11 @@
     prefix: [
         (
             name: "Obedience",
-            selected: false,
+            selected: true,
         ),
         (
             name: "Pleasure",
-            selected: true,
+            selected: false,
         ),
         (
             name: "Administrative",
@@ -16,7 +16,7 @@
         ),
         (
             name: "Conversion",
-            selected: true,
+            selected: false,
         ),
         (
             name: "Denial",
@@ -30,7 +30,7 @@
         ),
         (
             name: "Toy",
-            selected: true,
+            selected: false,
         ),
         (
             name: "Resouce",
@@ -41,4 +41,9 @@
             selected: false,
         ),
     ],
+    temp_affix: (
+        name: "",
+        selected: false,
+    ),
+    affix_type: Suffix,
 )
